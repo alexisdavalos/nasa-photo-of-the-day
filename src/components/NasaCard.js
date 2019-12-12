@@ -1,25 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
+import * as Styled from "./Styles";
+import {Badge, Card, Collapse, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
 
-const NasaCard = props => {
-    // console.log("The Object above is logging in NasaGrid.js");
-    // console.log(props.nasaData); 
-  // Display a loading message while the data is fetching
-    if (!props.nasaData){
-      return <h3>Loading...</h3>
-    }else{
-      return (
-        <div>
-          <h1>{props.nasaData.title}</h1>
-          <h3>{props.nasaData.date}</h3>
-          <div className="imgContainer">
-                  <img className="nasa-image" alt={props.nasaData} src={props.nasaData.hdurl} />
-              </div>
-          </div>
-      );
-    }
 
-    // Display your component as normal after the data has been fetched
-    
+const NasaCard = (props) =>{
+    const [isOpen, setisOpen] = useState(false);
+    const toggle = () => setisOpen(!isOpen)
+    return (
+        <Styled.NewCard>
+                    <CardBody> 
+                      <div>
+                        <img alt="Nasa"src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/NASA_Worm_logo.svg/200px-NASA_Worm_logo.svg.png"></img>
+                      </div>
+                      <Styled.NewCardTitle>{`${props.nasaData.title} `}<Badge color="secondary">APOD</Badge></Styled.NewCardTitle>
+                      <CardSubtitle><a href={props.nasaData.url} target="_empty">Original Image</a></CardSubtitle>
+                      <CardSubtitle style={{color:"white"}}>{`Date: ${props.nasaData.date}`}</CardSubtitle>
+                      <Button onClick={toggle}>Learn More</Button>
+                      <Collapse isOpen={isOpen}>
+                        <CardText style={{color:"white"}}>{props.nasaData.explanation}</CardText>
+                      </Collapse>
+                    </CardBody>
+                </Styled.NewCard>
+    )
 }
 
 export default NasaCard;

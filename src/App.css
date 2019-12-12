@@ -22,7 +22,31 @@
 .App-link {
   color: #61dafb;
 }
-
+/* .container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  max-width:100%;
+  padding:5%;
+  flex-direction:column;
+} */
+/* .wrapper{
+  max-width:100%;
+  overflow:hidden;
+} */
+.header{
+  width:25%;
+}
+.imgContainer{
+  width: 75%;
+ 
+}
+.imgContainer img{
+  width:75%;
+  margin:5%;
+  box-shadow:5px 5px 5px #000000d4;
+  
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
