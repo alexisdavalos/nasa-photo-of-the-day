@@ -1,15 +1,17 @@
-import React, {useState} from "react";
+import React from "react";
 import * as Styled from "./Styles";
 import NasaCard from "./NasaCard";
-import {Badge, Card, Collapse, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
+import { Button} from 'reactstrap';
 
 const NasaWrapper = props => {
-  //toggle useState
   
-  console.log(Styled.Wrapper);
+  // console.log(Styled.Wrapper);
     // console.log("The Object above is logging in NasaGrid.js");
     // console.log(props.nasaData); 
   // Display a loading message while the data is fetching
+    const minusDay = () =>{
+      return props.setDay(props.day--);
+    }
     if (!props.nasaData){
       return <h3>Loading...</h3>
     }else{
