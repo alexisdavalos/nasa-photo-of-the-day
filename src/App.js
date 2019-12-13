@@ -8,29 +8,16 @@ import NasaWrapper from "./components/NasaWrapper";
 function App() {
   //yyyy-mm-dd format
   const [nasaData, setNasaData] = useState([]);
-  const [year, setYear] = useState("");
-  const [month, setMonth] = useState("");
-  const [day, setDay] = useState("");
+  const [year, setYear] = useState(moment().year());
+  const [month, setMonth] = useState(moment().month()+1);
+  const [day, setDay] = useState(moment().date());
  
-  // console.log(end);
-  useEffect(() =>{
-    let year = moment().year(); //grab current year
-    let nasaYear = moment(year); //pass moment object to nasaYear
-    setYear(nasaYear._i); //updates useState of year to nasaYear
-
-    let month = moment().month(); //grab current month
-    let nasaMonth = moment(month); //pass moment object to nasaMonth
-    setMonth(nasaMonth._i); //updates useState of year to nasaMonth
-
-    let day = moment().date();//grab current day
-    let nasaDay = moment(day);//pass day object into nasaDay
-    setDay(nasaDay._i) //updates useState of day to nasaDay
-    
-  },[])
+  // console.log(end);  
+ 
   console.log(`${year}-${month}-${day}`);
   // console.log(moment().year(year).month(month).date(day))
   // console.log(nasaData);
-  useEffect(() =>{
+  useEffect(() =>{    
       axios.get(`https://api.nasa.gov/planetary/apod?api_key=ifBq7GiGfdakHrxlIWrxNkD7D03nIj2DXRHEocKa&date=${year}-${month}-${day}`)
       .then(response =>{
         //set Axios response to nasaData

@@ -9,9 +9,16 @@ const NasaWrapper = props => {
     // console.log("The Object above is logging in NasaGrid.js");
     // console.log(props.nasaData); 
   // Display a loading message while the data is fetching
-    const minusDay = () =>{
-      return props.setDay(props.day--);
+  console.log(props.day);  
+  const addDay = () =>{
+      // console.log(props.day+1)
+      props.setDay(props.day+1)
     }
+    const minusDay = () =>{
+      // console.log(props.day+1)
+      props.setDay(props.day-1)
+    }
+   
     if (!props.nasaData){
       return <h3>Loading...</h3>
     }else{
@@ -19,12 +26,12 @@ const NasaWrapper = props => {
         <Styled.Wrapper>
           <Styled.centerContainer>
             <Styled.centerContainer style={{margin:"0", flexDirection:"row"}}>
-              <Button>Last</Button>
+              <Button onClick={() => minusDay()}>Last</Button>
               <Styled.ImgContainer id="imgContainer">
                 <NasaCard nasaData={props.nasaData}/>
                 <Styled.Img  alt={`Photo: ${props.nasaData.title}`} src={props.nasaData.hdurl} />
               </Styled.ImgContainer>
-              <Button>Next</Button>
+              <Button onClick={() => addDay()}>Next</Button>
             </Styled.centerContainer>
           </Styled.centerContainer>
         </Styled.Wrapper>
