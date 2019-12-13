@@ -5,12 +5,16 @@ import {Card, CardTitle} from 'reactstrap';
 export const Wrapper = styled.div`
     max-width:100%;
     overflow:hidden;
+    display:flex;
     `
 
 export const NewCard = styled(Card)`
-    width:100%
-    position:absolute;
+    width:25%
+    height:100vh;
     background: #033a92f0;
+    display:flex;
+    flex-direction:column;
+    
 `
 export const NewCardTitle = styled(CardTitle)`
     color:white;
@@ -24,15 +28,12 @@ export const centerContainer = styled.div`
     flex-direction:column;
     `
 export const Img = styled.img`
-    width:100vw;
+    width:100%
     height:100vh;
     box-shadow: 5px 5px 5px #000000d4;
 `
 export const ImgContainer = styled.div`
-    width:100vw;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
+    width:100%;
 `
 
 
